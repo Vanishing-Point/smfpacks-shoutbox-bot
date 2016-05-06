@@ -1,5 +1,5 @@
 import network
-from models import MsgDatabase, DatabaseConnection
+from models import Database, DatabaseConnection
 from time import sleep
       
 with network.Bot() as Malbolge, DatabaseConnection() as database:
