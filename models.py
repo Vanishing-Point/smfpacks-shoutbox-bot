@@ -28,6 +28,11 @@ class Message:
         try:
             assert('<?xml version="1.0" encoding="UTF-8"?>' in response)
         except AssertionError:
+            #This part of the code was copied directly from the main loop
+            #function from one of the previous versions of the bot,
+            #so it doesn't actually do anything except printing a message.
+            #Should probably change this to return an AssertionError
+            #to be handled further down the pipeline.
             print("Invalid response. The server might be experiencing problems.\nRetrying in {} seconds".format(300))
             return []
         response = response.replace('<![CDATA[','',1)
