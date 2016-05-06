@@ -42,7 +42,7 @@ class MatchManager():
 
 
 class NetworkManager():
-    URL_BASE = 'http://forum.rpg-center.pl/index.php'
+    URL_BASE = 'http://<forum_address>/index.php'
     LIST_XML = '?action=shoutbox;sa=get;xml;row=0'
 
     def __init__(self):
