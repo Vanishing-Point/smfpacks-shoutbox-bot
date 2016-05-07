@@ -57,12 +57,11 @@ class Message:
         if len(other) <= 10:
             Message.setLastMsg(str(other[-1].contents))
             return other
-        
-        for i in xrange(len(other) -1, -1, -1):
-            if recent == str(other[i].contents):
-                break
+
+        nonDupes = (lambda msgs: [] if not msgs or str(msgs[-1].contents) ==
+                    recent else nonDupes(msgs[:-1]) + [msgs[-1]])
         Message.setLastMsg(str(other[-1].contents))
-        return other[i:]
+        return nonDupes(other)
     
     @staticmethod
     def process(message):
